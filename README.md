@@ -1,9 +1,9 @@
 # Text Converters
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Educational Use](https://img.shields.io/badge/Use-Educational%20Only-red.svg)](https://github.com/YOUR_USERNAME/text-converters)
+[![Educational Use](https://img.shields.io/badge/Use-Educational%20Only-red.svg)](https://github.com/Nikolaos-Paximadakis/text-converters)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![Status: Beta](https://img.shields.io/badge/Status-Beta-orange.svg)](https://github.com/YOUR_USERNAME/text-converters)
+[![Status: Beta](https://img.shields.io/badge/Status-Beta-orange.svg)](https://github.com/Nikolaos-Paximadakis/text-converters)
 
 A shared Python package for character conversion utilities across multiple languages. This package provides functions to convert characters from various languages to English equivalents.
 
