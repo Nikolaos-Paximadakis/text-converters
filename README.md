@@ -1,6 +1,28 @@
 # Text Converters
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Educational Use](https://img.shields.io/badge/Use-Educational%20Only-red.svg)](https://github.com/YOUR_USERNAME/text-converters)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Status: Beta](https://img.shields.io/badge/Status-Beta-orange.svg)](https://github.com/YOUR_USERNAME/text-converters)
+
 A shared Python package for character conversion utilities across multiple languages. This package provides functions to convert characters from various languages to English equivalents.
+
+## ⚠️ Important Disclaimer
+
+**This software is provided for EDUCATIONAL and RESEARCH purposes only.** It is NOT intended for use in critical applications without proper verification and professional review.
+
+### Text Conversion Notice
+- The accuracy of character conversions depends entirely on the provided mapping tables
+- Users are solely responsible for verifying all conversions and ensuring they meet their requirements
+- The authors make no representations about the accuracy or completeness of character mappings
+- **Users should verify all conversions independently before using in production**
+
+### No Warranty for Conversion Accuracy
+- The software is provided "AS IS" without any warranty regarding conversion accuracy
+- The authors disclaim all responsibility for any errors, omissions, or inaccuracies in character conversions
+- Users assume all risks and responsibilities for their use of converted text
+
+**By using this software, you acknowledge that you have read and understood these disclaimers.**
 
 ## Features
 
@@ -173,3 +195,5 @@ This package is designed to be shared between the SRU Generator and Mihalis proj
 ## Version History
 
 - **1.0.0**: Initial release with Greek, Swedish, German, French, and Spanish converters
+
+

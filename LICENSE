@@ -1,0 +1,56 @@
+MIT License
+
+Copyright (c) 2024 [Your Name]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+===============================================================================
+
+IMPORTANT TEXT CONVERSION DISCLAIMER
+
+This software is provided for EDUCATIONAL and RESEARCH purposes only. It is
+NOT intended for use in critical applications without proper verification
+and professional review.
+
+TEXT CONVERSION DISCLAIMER:
+- This software provides character conversion utilities for different languages
+- The accuracy of conversions depends on the provided mapping tables
+- Users are solely responsible for verifying all conversions and their accuracy
+- The authors make no representations about the accuracy or completeness of
+  character mappings
+- Users should verify conversions independently before using in production
+- Language-specific conversions may not cover all edge cases or regional variations
+
+NO WARRANTY FOR CONVERSION ACCURACY:
+- The software is provided "AS IS" without any warranty regarding conversion accuracy
+- The authors disclaim all responsibility for any errors, omissions, or
+  inaccuracies in character conversions
+- Users assume all risks and responsibilities for their use of converted text
+- Character mappings may not be complete or up-to-date for all languages
+
+PROFESSIONAL ADVICE RECOMMENDATION:
+Users are strongly advised to:
+1. Verify all character conversions independently
+2. Consult with language experts for critical applications
+3. Test conversions thoroughly before production use
+4. Keep backup copies of original text
+5. Use multiple conversion methods for verification
+
+By using this software, you acknowledge that you have read, understood, and
+agree to these terms and conditions.
