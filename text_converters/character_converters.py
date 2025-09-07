@@ -4,7 +4,7 @@ This module provides various character conversion functions that can be used
 across multiple projects for converting characters from various languages to English equivalents.
 """
 
-from typing import Dict
+from typing import Callable, Dict
 
 
 def convert_greek_characters_to_english(text: str) -> str:
@@ -251,7 +251,7 @@ CHARACTER_CONVERTERS = {
 }
 
 
-def get_character_converter(language: str = "none"):
+def get_character_converter(language: str = "none") -> Callable[[str], str]:
     """
     Get a character converter function by language name.
 
