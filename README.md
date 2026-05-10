@@ -64,7 +64,7 @@ from text_converters import convert_greek_characters_to_english
 # Convert Greek text to English
 greek_text = "Αθήνα"
 english_text = convert_greek_characters_to_english(greek_text)
-print(english_text)  # Output: "Athena"
+print(english_text)  # Output: "Athhna"
 ```
 
 ### Using the Character Converter Dictionary
@@ -88,7 +88,7 @@ from text_converters import get_character_converter
 
 # Get a converter by language name
 converter = get_character_converter("greek")
-result = converter("Καλησπέρα")  # "Kalispera"
+result = converter("Καλησπέρα")  # "Kalhspera"
 
 # Handle unsupported languages
 try:
@@ -110,7 +110,7 @@ from text_converters import (
 greek_result = convert_greek_characters_to_english("Γεια σας")  # "Geia sas"
 
 # German
-german_result = convert_german_characters_to_english("Grüße")  # "GrUesse"
+german_result = convert_german_characters_to_english("Grüße")  # "Gruesse"
 
 # French
 french_result = convert_french_characters_to_english("Bonjour")  # "Bonjour"
@@ -120,9 +120,9 @@ french_result = convert_french_characters_to_english("Bonjour")  # "Bonjour"
 
 | Language | Function | Example |
 |----------|----------|---------|
-| Greek | `convert_greek_characters_to_english` | "Αθήνα" → "Athena" |
+| Greek | `convert_greek_characters_to_english` | "Αθήνα" → "Athhna" |
 | Swedish | `convert_swedish_characters_to_english` | "Göteborg" → "Goteborg" |
-| German | `convert_german_characters_to_english` | "Grüße" → "GrUesse" |
+| German | `convert_german_characters_to_english` | "Grüße" → "Gruesse" |
 | French | `convert_french_characters_to_english` | "Café" → "Cafe" |
 | Spanish | `convert_spanish_characters_to_english` | "España" → "Espana" |
 | None | `no_conversion` | "Hello" → "Hello" |

@@ -164,6 +164,9 @@ cython_debug/
 # VS Code
 .vscode/
 
+# Claude Code
+.claude/
+
 # macOS
 .DS_Store
 
