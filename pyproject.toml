@@ -41,11 +41,15 @@ dev = [
     "isort",
     "flake8",
     "mypy",
+    "pyright==1.1.414",
 ]
 
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["text_converters*"]
+
+[tool.setuptools.package-data]
+text_converters = ["py.typed"]
 
 [tool.black]
 line-length = 88
@@ -56,6 +60,10 @@ profile = "black"
 
 [tool.mypy]
 python_version = "3.11"
-warn_return_any = true
-warn_unused_configs = true
-disallow_untyped_defs = true
+strict = true
+files = ["text_converters"]
+
+[tool.pyright]
+include = ["text_converters"]
+pythonVersion = "3.11"
+typeCheckingMode = "strict"
