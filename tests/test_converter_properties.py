@@ -29,7 +29,7 @@ LANGUAGE_LETTERS = {
     "german": (convert_german_characters_to_english, "äöüßÄÖÜ"),
     "french": (
         convert_french_characters_to_english,
-        "àâçéèêëîïôùûüÿÀÂÇÉÈÊËÎÏÔÙÛÜŸ",
+        "àâæçéèêëîïôœùûüÿÀÂÆÇÉÈÊËÎÏÔŒÙÛÜŸ",
     ),
     "spanish": (convert_spanish_characters_to_english, "áéíóúüñÁÉÍÓÚÜÑ"),
     "greek": (convert_greek_characters_to_english, GREEK_LETTERS),
@@ -72,6 +72,11 @@ def test_converting_twice_changes_nothing(language):
     convert, letters = LANGUAGE_LETTERS[language]
     once = convert(letters)
     assert convert(once) == once
+
+
+def test_french_ligatures():
+    assert convert_french_characters_to_english("Œuvre cœur") == "Oeuvre coeur"
+    assert convert_french_characters_to_english("Æsop æther") == "Aesop aether"
 
 
 @pytest.mark.parametrize(
