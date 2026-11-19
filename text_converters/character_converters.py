@@ -198,6 +198,10 @@ def convert_french_characters_to_english(text: str) -> str:
         Text with French characters converted to English equivalents
     """
     french_to_english_mapping: dict[str, str] = {
+        "Æ": "Ae",
+        "æ": "ae",
+        "Œ": "Oe",
+        "œ": "oe",
         "À": "A",
         "à": "a",
         "Á": "A",

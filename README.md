@@ -21,8 +21,10 @@ Each converter is a simple character-by-character lookup. Known limits:
   `γγ`, ...) are converted letter by letter (`Ευρώ` → `Eyro`, `Μπαμπάς` → `Mpampas`).
 - **German** writes umlauts as `ae`/`oe`/`ue` and `ß` as `ss`. The other converters
   simply drop the accent (Swedish `ä` → `a`).
+- **French** writes the ligatures `œ` and `æ` as `oe` and `ae`; like the German
+  umlauts, their capitals become `Oe` and `Ae` even in an all-capitals word.
 - Characters missing from a language's map are returned unchanged, so the output is
-  not guaranteed to be ASCII (for example `Œ`, `Æ`, `¿`).
+  not guaranteed to be ASCII (for example `¿`, `€` or Cyrillic letters).
 - Conversion is one-way and loses information.
 
 ## Installation
