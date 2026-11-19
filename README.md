@@ -183,4 +183,5 @@ When adding new language converters:
 
 ## Version History
 
+- **0.2.0**: French `œ`/`æ` become `oe`/`ae`; the package ships `py.typed`.
 - **0.1.0**: First release: Greek, Swedish, German, French and Spanish converters.
