@@ -15,9 +15,8 @@ pytest tests/ -v                                 # Run all tests
 pytest tests/ -v --cov=text_converters           # With coverage
 pytest tests/test_character_converters.py::TestGreekConversion::test_basic_greek_conversion -v  # Single test
 
-flake8 text_converters/ tests/ --max-line-length=127   # Lint (max-line-length=127, not 88)
-black --check text_converters/ tests/                   # Format check
-isort --check-only text_converters/ tests/              # Import sort check
+ruff check .                                            # Lint (rule families in pyproject.toml)
+ruff format --check .                                   # Format check (replaces black/isort)
 mypy                                                    # Type check (strict, config in pyproject.toml)
 pyright                                                 # Second type checker (strict)
 ```
@@ -38,8 +37,8 @@ The Greek converter needs context, so it walks the text by index: `ου` becomes
 ## CI
 
 `.github/workflows/ci.yml` runs three parallel jobs on push to main and on PRs. A ruleset on `main` requires a PR and the Lint and Format checks; no force-push or deletion.
-1. **lint** — flake8 (max-line-length=127, max-complexity=10) on package and tests + mypy and pyright, both strict. The package ships `py.typed`
-2. **format** — black --check + isort --check-only on package and tests
+1. **lint** — ruff check + mypy and pyright, both strict. The package ships `py.typed`
+2. **format** — ruff format --check
 3. **test** — pytest matrix across Python 3.11–3.15 (only versions that are not end-of-life)
 
-Note: flake8 uses `--max-line-length=127`, but black is configured for line-length=88 in `pyproject.toml`. Don't introduce lines between 89–127 chars unless intentional.
+Strict settings: pytest treats warnings as errors (`--strict-markers --strict-config`); pyright refuses bare `# type: ignore` (an ignore names its rule and gives a reason). Ruff skips Markdown and allows Greek look-alike letters (RUF001-003) in the converter module and tests; that is deliberate.
