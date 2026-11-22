@@ -73,14 +73,16 @@ select = [
 "text_converters/character_converters.py" = ["RUF001", "RUF002", "RUF003"]
 # pytest asserts and parametrized flags; Greek test input.
 "tests/**" = ["S101", "FBT", "RUF001", "RUF002", "RUF003"]
+# A command-line check: its output is the result.
+"scripts/**" = ["T201"]
 
 [tool.mypy]
 python_version = "3.11"
 strict = true
-files = ["text_converters", "tests"]
+files = ["text_converters", "tests", "scripts"]
 
 [tool.pyright]
-include = ["text_converters", "tests"]
+include = ["text_converters", "tests", "scripts"]
 pythonVersion = "3.11"
 typeCheckingMode = "strict"
 enableTypeIgnoreComments = false  # an ignore must name its rule: # pyright: ignore[rule]
