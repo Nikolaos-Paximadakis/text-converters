@@ -4,7 +4,7 @@ All notable changes to this project are documented in this file. The project fol
 [Semantic Versioning](https://semver.org/); while the version is 0.x, a minor release
 may contain breaking changes, which are listed here.
 
-## [0.2.1] - Unreleased
+## [0.2.1] - 2026-11-22
 
 First release on PyPI (`pip install text-converters`). No change to the converters.
 
@@ -34,6 +34,6 @@ First release on PyPI (`pip install text-converters`). No change to the converte
 First release: Greek, Swedish, German, French and Spanish converters. The Greek converter
 is close to ELOT 743 letter by letter (`η` → `i`, `ου` → `ou`, `Θ`/`Χ`/`Ψ` → `Th`/`Ch`/`Ps`).
 
-[0.2.1]: https://github.com/Nikolaos-Paximadakis/text-converters/compare/v0.2.0...main
+[0.2.1]: https://github.com/Nikolaos-Paximadakis/text-converters/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/Nikolaos-Paximadakis/text-converters/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/Nikolaos-Paximadakis/text-converters/releases/tag/v0.1.0
