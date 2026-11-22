@@ -15,46 +15,46 @@ from text_converters import convert_greek_characters_to_english as greek
         ("Αθήνα", "Athina"),
     ],
 )
-def test_place_names(greek_text, latin):
+def test_place_names(greek_text: str, latin: str) -> None:
     assert greek(greek_text) == latin
 
 
-def test_capitals_stay_capitals():
+def test_capitals_stay_capitals() -> None:
     assert greek("ΘΕΣΣΑΛΟΝΙΚΗ") == "THESSALONIKI"
     assert greek("ΑΘΗΝΑ") == "ATHINA"
     assert greek("ΧΑΝΙΑ ΨΥΧΗ") == "CHANIA PSYCHI"
     assert greek("ΤΡΑΠΕΖΑ ΠΕΙΡΑΙΩΣ") == "TRAPEZA PEIRAIOS"
 
 
-def test_digraph_at_the_end_of_a_capital_word():
+def test_digraph_at_the_end_of_a_capital_word() -> None:
     assert greek("ΚΑΛΥΨ") == "KALYPS"
 
 
-def test_a_lone_capital_digraph_is_title_case():
+def test_a_lone_capital_digraph_is_title_case() -> None:
     assert greek("Θ") == "Th"
     assert greek("Χ. Παπαδόπουλος") == "Ch. Papadopoulos"
 
 
-def test_omicron_upsilon_is_ou():
+def test_omicron_upsilon_is_ou() -> None:
     assert greek("Παπαδόπουλος") == "Papadopoulos"
     assert greek("ΟΥΡΑΝΟΥΠΟΛΗ") == "OURANOUPOLI"
     assert greek("Ούζο") == "Ouzo"
     assert greek("Υδρα κύμα") == "Ydra kyma"  # υ alone stays y
 
 
-def test_eta_with_and_without_tonos():
+def test_eta_with_and_without_tonos() -> None:
     assert greek("ήη ΉΗ") == "ii II"
 
 
-def test_accented_capitals_and_diaeresis():
+def test_accented_capitals_and_diaeresis() -> None:
     assert greek("Άλφα Ώρα") == "Alfa Ora"
     assert greek("Ά Έ Ή Ί Ό Ύ Ώ Ϊ Ϋ ϊ ϋ ΐ ΰ") == "A E I I O Y O I Y i y i y"
 
 
-def test_text_that_is_not_greek_is_unchanged():
+def test_text_that_is_not_greek_is_unchanged() -> None:
     assert greek("Åsa Öberg 123 ABB") == "Åsa Öberg 123 ABB"
 
 
-def test_existing_examples_still_hold():
+def test_existing_examples_still_hold() -> None:
     assert greek("Ελλάδα") == "Ellada"
     assert greek("Τράπεζα Πειραιώς") == "Trapeza Peiraios"

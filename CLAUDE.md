@@ -37,7 +37,7 @@ The Greek converter needs context, so it walks the text by index: `ου` becomes
 ## CI
 
 `.github/workflows/ci.yml` runs three parallel jobs on push to main and on PRs. A ruleset on `main` requires a PR and the Lint and Format checks; no force-push or deletion.
-1. **lint** — ruff check + mypy and pyright, both strict. The package ships `py.typed`
+1. **lint** — ruff check + mypy and pyright, both strict, on the package and the tests. The package ships `py.typed`
 2. **format** — ruff format --check
 3. **test** — pytest matrix across Python 3.11–3.15 (only versions that are not end-of-life)
 
