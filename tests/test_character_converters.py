@@ -187,15 +187,15 @@ class TestCharacterConvertersDict:
     def test_character_converters_are_callable(self):
         """Test that all converters in CHARACTER_CONVERTERS are callable."""
         for converter_name, converter_func in CHARACTER_CONVERTERS.items():
-            assert callable(
-                converter_func
-            ), f"Converter {converter_name} is not callable"
+            assert callable(converter_func), (
+                f"Converter {converter_name} is not callable"
+            )
 
     def test_character_converters_return_strings(self):
         """Test that all converters return strings."""
         test_text = "Test"
         for converter_name, converter_func in CHARACTER_CONVERTERS.items():
             result = converter_func(test_text)
-            assert isinstance(
-                result, str
-            ), f"Converter {converter_name} did not return a string"
+            assert isinstance(result, str), (
+                f"Converter {converter_name} did not return a string"
+            )

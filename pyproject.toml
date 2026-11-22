@@ -37,9 +37,7 @@ Issues = "https://github.com/Nikolaos-Paximadakis/text-converters/issues"
 dev = [
     "pytest>=8",
     "pytest-cov",
-    "black",
-    "isort",
-    "flake8",
+    "ruff",
     "mypy",
     "pyright==1.1.414",
 ]
@@ -51,12 +49,30 @@ include = ["text_converters*"]
 [tool.setuptools.package-data]
 text_converters = ["py.typed"]
 
-[tool.black]
-line-length = 88
-target-version = ["py311"]
+[tool.ruff]
+target-version = "py311"
+extend-exclude = ["*.md"]  # README examples are documentation, not code to reformat
 
-[tool.isort]
-profile = "black"
+[tool.ruff.lint]
+select = [
+    "E4", "E7", "E9", "F",        # syntax, undefined names, unused imports
+    "B",                          # bugbear: mutable defaults, zip strict, loop closures
+    "S",                          # security, incl. assert used as a guard
+    "DTZ",                        # naive datetimes
+    "RUF", "SIM", "PERF",         # correctness-adjacent idioms; RUF100 prunes stale noqa
+    "I", "UP",                    # import order, modern syntax
+    "T20", "ERA",                 # stray prints, commented-out code
+    "PTH",                        # pathlib
+    "FBT",                        # boolean positional arguments
+]
+# Not selected on purpose: ANN (the type checkers cover it), PL and C90 (style and
+# complexity counts, not defects), E501 (long explanatory comments are fine).
+
+[tool.ruff.lint.per-file-ignores]
+# Greek letters that look like Latin ones are the point of this package.
+"text_converters/character_converters.py" = ["RUF001", "RUF002", "RUF003"]
+# pytest asserts and parametrized flags; Greek test input.
+"tests/**" = ["S101", "FBT", "RUF001", "RUF002", "RUF003"]
 
 [tool.mypy]
 python_version = "3.11"

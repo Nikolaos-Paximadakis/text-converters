@@ -16,9 +16,9 @@ jobs:
         with:
           python-version: "3.15"
       - name: Install tools
-        run: python -m pip install flake8 mypy "pyright==1.1.414"
-      - name: flake8
-        run: flake8 text_converters/ tests/ --max-line-length=127 --max-complexity=10
+        run: python -m pip install ruff mypy "pyright==1.1.414" pytest
+      - name: ruff
+        run: ruff check .
       - name: mypy (strict)
         run: mypy
       - name: pyright (strict)
@@ -33,11 +33,9 @@ jobs:
         with:
           python-version: "3.15"
       - name: Install tools
-        run: python -m pip install black isort
-      - name: black
-        run: black --check text_converters/ tests/
-      - name: isort
-        run: isort --check-only text_converters/ tests/
+        run: python -m pip install ruff
+      - name: ruff format
+        run: ruff format --check .
 
   test:
     name: Test (${{ matrix.python-version }})

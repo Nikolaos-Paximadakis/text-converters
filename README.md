@@ -155,16 +155,13 @@ pip install -e ".[dev]"
 pytest
 ```
 
-### Code Formatting
+### Lint, Format and Type Checks
 
 ```bash
-black text_converters/
-```
-
-### Type Checking
-
-```bash
-mypy text_converters/
+ruff check .
+ruff format --check .
+mypy
+pyright
 ```
 
 ## License
