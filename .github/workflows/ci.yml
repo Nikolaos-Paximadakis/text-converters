@@ -6,13 +6,18 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: "3.15"
       - name: Install tools
@@ -28,8 +33,10 @@ jobs:
     name: Format
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: "3.15"
       - name: Install tools
@@ -45,11 +52,34 @@ jobs:
       matrix:
         python-version: ["3.11", "3.12", "3.13", "3.14", "3.15"]
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install
         run: python -m pip install -e ".[dev]"
       - name: pytest
-        run: pytest tests/ -v --cov=text_converters --cov-branch --cov-report=term-missing
+        run: pytest -v --cov=text_converters --cov-branch --cov-report=term-missing
+
+  package:
+    name: Package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
+      - name: Build wheel and sdist
+        run: uv build --out-dir dist
+      - name: twine check
+        run: uvx twine check --strict dist/*
+      - name: Archive contents and versions
+        run: uv run --no-project python scripts/check_dist.py dist
+      - name: Install each archive in a clean environment and use it
+        run: |
+          for archive in dist/*.whl dist/*.tar.gz; do
+            uv run --isolated --no-project --with "$archive" python -I -c \
+              "import text_converters as t; assert t.get_character_converter('greek')('Θεσσαλονίκη') == 'Thessaloniki'; print('$archive OK', t.__version__)"
+          done
