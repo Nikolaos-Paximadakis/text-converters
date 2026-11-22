@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-`text_converters` is a pure Python package (v0.2.1; first PyPI release pending, see issue #3) for converting accented/special characters from Greek, Swedish, German, French, and Spanish to their English equivalents. Zero runtime dependencies. Supports the Python versions that are not end-of-life (currently 3.11+).
+`text_converters` is a pure Python package (v0.2.1, on PyPI as `text-converters`) for converting accented/special characters from Greek, Swedish, German, French, and Spanish to their English equivalents. Zero runtime dependencies. Supports the Python versions that are not end-of-life (currently 3.11+).
 
 ## Commands
 
