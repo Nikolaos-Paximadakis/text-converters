@@ -38,14 +38,14 @@ LANGUAGE_LETTERS = {
 PRINTABLE_ASCII = string.printable
 
 
-def test_greek_letter_set_is_complete():
+def test_greek_letter_set_is_complete() -> None:
     # 7 letters with tonos, 24 capitals, 2 capitals with diaeresis, 25 lowercase
     # (with final sigma), 7 with tonos, 2 with diaeresis, 2 with both.
     assert len(GREEK_LETTERS) == 69
 
 
 @pytest.mark.parametrize("language", sorted(LANGUAGE_LETTERS))
-def test_every_letter_of_the_language_becomes_ascii(language):
+def test_every_letter_of_the_language_becomes_ascii(language: str) -> None:
     convert, letters = LANGUAGE_LETTERS[language]
     for letter in letters:
         result = convert(letter)
@@ -53,7 +53,7 @@ def test_every_letter_of_the_language_becomes_ascii(language):
 
 
 @pytest.mark.parametrize("language", sorted(LANGUAGE_LETTERS))
-def test_capital_gives_the_capitalised_lowercase_result(language):
+def test_capital_gives_the_capitalised_lowercase_result(language: str) -> None:
     convert, letters = LANGUAGE_LETTERS[language]
     for letter in letters:
         if not letter.islower() or len(letter.upper()) != 1:
@@ -63,18 +63,18 @@ def test_capital_gives_the_capitalised_lowercase_result(language):
 
 
 @pytest.mark.parametrize("name", sorted(CHARACTER_CONVERTERS))
-def test_ascii_text_is_left_unchanged(name):
+def test_ascii_text_is_left_unchanged(name: str) -> None:
     assert CHARACTER_CONVERTERS[name](PRINTABLE_ASCII) == PRINTABLE_ASCII
 
 
 @pytest.mark.parametrize("language", sorted(LANGUAGE_LETTERS))
-def test_converting_twice_changes_nothing(language):
+def test_converting_twice_changes_nothing(language: str) -> None:
     convert, letters = LANGUAGE_LETTERS[language]
     once = convert(letters)
     assert convert(once) == once
 
 
-def test_french_ligatures():
+def test_french_ligatures() -> None:
     assert convert_french_characters_to_english("Œuvre cœur") == "Oeuvre coeur"
     assert convert_french_characters_to_english("Æsop æther") == "Aesop aether"
 
@@ -95,11 +95,11 @@ def test_french_ligatures():
         ("ουου", "ouou"),
     ],
 )
-def test_greek_context_rules_at_the_edges(greek_text, latin):
+def test_greek_context_rules_at_the_edges(greek_text: str, latin: str) -> None:
     assert convert_greek_characters_to_english(greek_text) == latin
 
 
-def test_public_api():
+def test_public_api() -> None:
     assert set(text_converters.__all__) == {
         "CHARACTER_CONVERTERS",
         "convert_french_characters_to_english",
