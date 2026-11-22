@@ -19,6 +19,7 @@ ruff check .                                            # Lint (rule families in
 ruff format --check .                                   # Format check (replaces black/isort)
 mypy                                                    # Type check (strict, config in pyproject.toml)
 pyright                                                 # Second type checker (strict)
+pre-commit run --all-files                              # Whitespace, ruff, gitleaks (install once: pre-commit install)
 ```
 
 ## Architecture
