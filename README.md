@@ -29,7 +29,11 @@ Each converter is a simple character-by-character lookup. Known limits:
 
 ## Installation
 
-The package is not published on PyPI. Install it from GitHub:
+```bash
+pip install text-converters
+```
+
+Or the latest development version from GitHub:
 
 ```bash
 pip install git+https://github.com/Nikolaos-Paximadakis/text-converters.git
@@ -166,7 +170,7 @@ pyright
 
 ## License
 
-MIT License. See [LICENSE](LICENSE).
+MIT License. See [LICENSE](https://github.com/Nikolaos-Paximadakis/text-converters/blob/main/LICENSE).
 
 ## Contributing
 
@@ -178,7 +182,6 @@ When adding new language converters:
 4. Add tests for the new converter
 5. Update this README with examples
 
-## Version History
+## Changes
 
-- **0.2.0**: French `œ`/`æ` become `oe`/`ae`; the package ships `py.typed`.
-- **0.1.0**: First release: Greek, Swedish, German, French and Spanish converters.
+See the [changelog](https://github.com/Nikolaos-Paximadakis/text-converters/blob/main/CHANGELOG.md).
